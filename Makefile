@@ -23,26 +23,26 @@ test-integration: ## Run integration tests only
 	pytest tests/test_integration.py -m "not unit"
 
 test-coverage: ## Run tests with coverage report
-	pytest --cov=dystroseq --cov-report=html --cov-report=term
+	pytest --cov=exonseq --cov-report=html --cov-report=term
 
 test-fast: ## Run fast tests (unit tests without network)
 	pytest tests/test_seq_utils.py tests/test_ensembl_client.py -m "not network and not slow"
 
 lint: ## Run linting
-	python -m flake8 dystroseq tests
-	python -m mypy dystroseq
+	python -m flake8 exonseq tests
+	python -m mypy exonseq
 
 clean: ## Clean up test artifacts
 	rm -rf .pytest_cache
 	rm -rf htmlcov
 	rm -rf .coverage
 	rm -rf __pycache__
-	rm -rf dystroseq/__pycache__
+	rm -rf exonseq/__pycache__
 	rm -rf tests/__pycache__
 	find . -name "*.pyc" -delete
 
 test-example: ## Run example test to verify functionality
-	python -m dystroseq --species homo_sapiens --gene DMD --variant "chrX:g.31805775-31932165del" --out test_example_output
+	python -m exonseq --species homo_sapiens --gene DMD --variant "chrX:g.31805775-31932165del" --out test_example_output
 
 ci-test: ## Run tests suitable for CI (no network, fast)
 	pytest tests/test_seq_utils.py -v --tb=short
