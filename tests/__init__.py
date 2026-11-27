@@ -1,2 +1,2 @@
-# Test package for dystroSeq
+# Test package for exonSeq
 

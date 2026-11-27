@@ -37,7 +37,7 @@ jobs:
     
     - name: Generate coverage report
       run: |
-        pytest --cov=dystroseq --cov-report=xml --cov-report=term-missing
+        pytest --cov=exonseq --cov-report=xml --cov-report=term-missing
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
@@ -64,12 +64,12 @@ jobs:
     
     - name: Lint with flake8
       run: |
-        flake8 dystroseq tests --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 dystroseq tests --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 exonseq tests --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 exonseq tests --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     
     - name: Type check with mypy
       run: |
-        mypy dystroseq --ignore-missing-imports || echo "Type checking completed with warnings"
+        mypy exonseq --ignore-missing-imports || echo "Type checking completed with warnings"
       continue-on-error: true
 
   example-test:
@@ -89,7 +89,7 @@ jobs:
     
     - name: Run example test
       run: |
-        python -m dystroseq --species homo_sapiens --gene DMD --variant "chrX:g.31805775-31932165del" --out test_output
+        python -m exonseq --species homo_sapiens --gene DMD --variant "chrX:g.31805775-31932165del" --out test_output
         ls -la test_output/
         echo "Files created:"
         ls test_output/ | wc -l

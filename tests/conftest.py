@@ -1,4 +1,4 @@
-"""Test configuration and fixtures for dystroSeq tests."""
+"""Test configuration and fixtures for exonSeq tests."""
 
 import pytest
 import tempfile

@@ -93,7 +93,7 @@ pytest tests/test_seq_utils.py::TestVariantParsing::test_parse_genomic_variant_w
 pytest -v
 
 # Run with coverage
-pytest --cov=dystroseq --cov-report=html
+pytest --cov=exonseq --cov-report=html
 
 # Run tests matching a pattern
 pytest -k "variant"
